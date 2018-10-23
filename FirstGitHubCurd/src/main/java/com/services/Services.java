@@ -13,7 +13,9 @@ public interface Services {
 
 	User getSingleUser(Credentials credentials);
 
-	void getDataForMangerPage(User user, Model model);
+	List<User> getListByRoleId(int i);
+
+	
 
 	
 

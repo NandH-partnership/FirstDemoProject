@@ -3,10 +3,8 @@ package com.services;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.tomcat.util.buf.UDecoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 
 import com.dao.CredentialsDao;
 import com.dao.RoleDao;
@@ -55,12 +53,19 @@ public class ServicesImpl implements Services {
 	}
 
 
+	
+
+
 	@Override
-	public void getDataForMangerPage(User user, Model model) {
+	public List<User> getListByRoleId(int i) {
 		List<User>allList=(List<User>) userDao.findAll();
-		
-		
-		
+		List<User>userList=new ArrayList<User>();
+		for(User user:allList) {
+			if(user.getRole().getRoleid()==3) {
+			userList.add(user);
+			}
+		}
+		return userList;
 	}
 
 

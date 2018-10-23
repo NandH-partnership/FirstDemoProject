@@ -1,6 +1,9 @@
 package com.controller;
 
+import java.io.IOException;
 import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,9 +11,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.google.gson.Gson;
 import com.model.Credentials;
-import com.model.Role;
 import com.model.User;
 import com.services.Services;
 
@@ -48,7 +52,7 @@ public class HomeController {
 		case 3:
 			model.addAttribute("msg","user");
 
-			return "Login";
+			return "UserData";
 		
 		default:
 			return "Login";
@@ -68,5 +72,48 @@ public class HomeController {
 		}
 		return "Login";
 	}
+	
+	public @ResponseBody String sendUserList(HttpServletResponse  response) {
+		List<User>userList=services.getListByRoleId(3);
+		String json=new Gson().toJson(userList);
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		try {
+			response.getOutputStream();
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		}
+		return json;
+		
+	} 
+	public @ResponseBody String sendManagerList(HttpServletResponse  response) {
+		List<User>managerList=services.getListByRoleId(2);
+		String json=new Gson().toJson(managerList);
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		try {
+			response.getOutputStream();
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		}
+		return json;
+		
+	} 
+	public @ResponseBody String sendAdminList(HttpServletResponse  response) {
+		List<User>adminList=services.getListByRoleId(1);
+		String json=new Gson().toJson(adminList);
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		try {
+			response.getOutputStream();
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		}
+		return json;
+		
+	} 
 
 }
