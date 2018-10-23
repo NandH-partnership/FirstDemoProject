@@ -1,13 +1,11 @@
 package com.controller;
 
-import javax.persistence.Entity;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.model.Credentials;
 import com.model.User;
@@ -27,8 +25,14 @@ public class HomeController {
 	}
 
 	@RequestMapping("/save")
-	public String saveUser(@ModelAttribute User user,@ModelAttribute Credentials credentials
-			,Model model) {
-		int i=services.saveUser(user,credentials);
+	public String saveUser(@ModelAttribute User user, @ModelAttribute Credentials credentials, Model model) {
+
+		int i = services.saveUser(user, credentials);
+		if (i == 0) {
+			model.addAttribute("msg", "Registration failed");
+		}else{
+			model.addAttribute("msg", "Registration successfull");
+		}
+		return "Login";
 	}
 }

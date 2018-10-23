@@ -19,7 +19,16 @@ public class ServicesImpl implements Services {
 	
 	@Override
 	public int saveUser(User user, Credentials credentials) {
-
+		user.setCredentials(credentials);
+		try
+		{
+		userDao.save(user);
+		return 1;
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 		return 0;
 	}
 
