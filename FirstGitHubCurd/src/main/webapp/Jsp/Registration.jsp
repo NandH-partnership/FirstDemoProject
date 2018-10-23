@@ -10,9 +10,10 @@
 <form action="save">
 <pre>
 
+	
 	FirstName <input type="text" name="firstname">
 
-	LastName <input type="text" name="LastName">
+	LastName <input type="text" name="lastName">
 	
  MobileNumber <input type="text" name="mobilenumber">
  

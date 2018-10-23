@@ -1,12 +1,15 @@
 package com.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import com.dao.CredentialsDao;
 import com.dao.RoleDao;
 import com.dao.UserDao;
 import com.model.Credentials;
 import com.model.User;
 
+@Service
 public class ServicesImpl implements Services {
 
 	@Autowired
@@ -14,7 +17,7 @@ public class ServicesImpl implements Services {
 	@Autowired
 	RoleDao roleDao;
 	@Autowired
-	Credentials credentials;
+	CredentialsDao credentials;
 	
 	
 	@Override
