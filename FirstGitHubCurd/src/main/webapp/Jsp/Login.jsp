@@ -24,14 +24,14 @@
 				<h3>
 					<td><font color="white">Username:-</font></td>
 				</h3>
-				<td><input type="text" name="username"></td>
+				<td><input type="text" name="username" placeholder="Enter Username"></td>
 			</tr>
 
 			<tr>
 				<h3>
 					<td><font color="white">Password:-</font></td>
 				</h3>
-				<td><input type="password" name="password"></td>
+				<td><input type="password" name="password" placeholder="Enter password"></td>
 			</tr>
 		</table>
 		<input type="submit" value="Login"> 
