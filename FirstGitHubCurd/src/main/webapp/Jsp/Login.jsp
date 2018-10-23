@@ -10,7 +10,7 @@
 <body bgcolor="purple">
 <form action="login">
 
-	<center>
+
 		<h1>
 			<font color="Yellow">Login Page</font>
 		</h1>
@@ -34,11 +34,11 @@
 				<td><input type="password" name="password"></td>
 			</tr>
 		</table>
-		<input type="submit" value="Login"> &nbsp
+		<input type="submit" value="Login"> 
 		<h3>
 			<font color="white"><a href="registerpage">Register Here</a></font>
 		</h3>
-	</center>
+
 	</form>
 </body>
 </html>
