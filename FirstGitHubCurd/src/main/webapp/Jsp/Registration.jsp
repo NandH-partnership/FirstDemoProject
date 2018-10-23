@@ -12,7 +12,7 @@
 			<font color="white">Registeration Form</font>
 		</h2>
 		<!-- <center> -->
-		<table background="#009900">
+		<table background="#009900" >
 
 
 
