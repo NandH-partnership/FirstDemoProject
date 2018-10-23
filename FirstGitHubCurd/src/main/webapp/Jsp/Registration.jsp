@@ -12,9 +12,7 @@
 			<font color="white">Registeration Form</font>
 		</h2>
 		<!-- <center> -->
-		<table background="#009900" >
-
-
+		<table background="#009900">
 
 			<tr>
 				<td><h4>
@@ -57,7 +55,7 @@
 					placeholder="Enter password"></td>
 			</tr>
 			<tr>
-				<td><input type="submit" value="Register"></a></td>
+				<td><input type="submit" value="Register"></td>
 			</tr>
 		</table>
 		<!-- </center> -->

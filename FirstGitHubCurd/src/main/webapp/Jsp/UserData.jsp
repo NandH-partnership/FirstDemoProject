@@ -11,7 +11,7 @@
 
 <form action="/">
 <h2><font color="white"><center>USER INFORMATION</center></font></h2>
-<h3><font color="white"><center>Hii{user.username}</center></font></h3>
+<h3><font color="white"><center>Hii&nbsp${user.credentials.username}</center></font></h3>
 <table border="1" >
 			<tr>
 				<th><h4><font color="white">Id</font></h4></th>
@@ -27,8 +27,8 @@
 					<td><h4><font color="white">${user.firstname}</font></td>
 					<td><h4><font color="white">${user.lastname}</font></h4></td>
 					<td><h4><font color="white">${user.mobilenumber}</font></h4></td>
-					<td><h4><font color="white">${user.username}</font></h4></td>
-					<td><h4><font color="white">${user.password}</font></h4></td>
+					<td><h4><font color="white">${user.credentials.username}</font></h4></td>
+					<td><h4><font color="white">${user.credentials.password}</font></h4></td>
 				</tr>
 		
 		</table>
