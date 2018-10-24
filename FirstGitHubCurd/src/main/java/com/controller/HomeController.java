@@ -26,12 +26,16 @@ public class HomeController {
 
 	@RequestMapping("/")
 	public String start() {
+
 		System.out.println(" test branch login");
-		return "Login";
+		System.out.println(" hemant branch........");
+		System.out.println(" test branch login.");	
+    return "Login";
 	}
 
 	@RequestMapping("/registerpage")
 	public String start1() {
+		System.out.println(" test branch register.");
 		return "Registration";
 	}
 
