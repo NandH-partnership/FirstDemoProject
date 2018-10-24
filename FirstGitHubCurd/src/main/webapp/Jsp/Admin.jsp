@@ -42,7 +42,7 @@ function userList() {
 					<td><h4><font color="white">${admin.lastname}</font></h4></td>
 					<td><h4><font color="white">${admin.mobilenumber}</font></h4></td>
 					<td><h4><font color="white">${admin.username}</font></h4></td>
-					<td><h4><font color="white">${admin.password}</font></h4></td>
+					<td><h4><font color="yellow">${admin.password}</font></h4></td>
 					
 			</tr>
 	</table>
