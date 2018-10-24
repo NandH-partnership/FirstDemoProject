@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Admin Info</title>
+<title>Admin Information</title>
 </head>
 <body bgcolor="#290066">
 
