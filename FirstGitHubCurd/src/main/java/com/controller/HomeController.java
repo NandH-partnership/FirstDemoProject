@@ -32,6 +32,7 @@ public class HomeController {
 
 	@RequestMapping("/registerpage")
 	public String start1() {
+		System.out.println("in register......");
 		return "Registration";
 	}
 
