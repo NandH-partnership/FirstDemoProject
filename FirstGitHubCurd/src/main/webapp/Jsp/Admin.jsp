@@ -46,8 +46,8 @@ function userList() {
 					
 			</tr>
 	</table>
-		<input type="button" value="Userlist" onclick="adminList()">
-	<input type="button" value="Userlist" onclick="managerList()">
+		<input type="button" value="Adminlist" onclick="adminList()">
+	<input type="button" value="Managerlist" onclick="managerList()">
 	<input type="button" value="Userlist" onclick="userList()">
      	<input type="button" value="Add User" onclick="addUser()">
 
