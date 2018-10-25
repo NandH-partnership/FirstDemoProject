@@ -69,6 +69,25 @@ public class ServicesImpl implements Services {
 	}
 
 
+	@Override
+	public User getSingleUser(int id) {
+		
+		return userDao.findOne(id);
+	}
+
+
+	@Override
+	public void updateUser(User user) {
+		userDao.save(user);
+		
+	}
+
+
+
+
+	
+
+
   
 
 
