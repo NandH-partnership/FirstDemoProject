@@ -45,19 +45,19 @@ public class HomeController {
 	public String login(@ModelAttribute Credentials credentials, Model model) {
 
 		User user=services.getSingleUser(credentials);
-		model.addAttribute("user",user);
+		
 		switch (user.getRole().getRoleid()) {
 		case 1:
-			model.addAttribute("msg","admin");
+			model.addAttribute("admin",user);
 
-			return "Login";
+			return "Admin";
 		case 2:
 			
 			model.addAttribute("manager",user);
 
 			return "Manager";
 		case 3:
-			model.addAttribute("msg","user");
+			model.addAttribute("user",user);
 
 			return "UserData";
 		
