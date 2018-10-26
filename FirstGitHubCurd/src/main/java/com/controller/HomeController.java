@@ -29,7 +29,7 @@ public class HomeController {
 
 		System.out.println(" test branch login");
 		System.out.println(" hemant branch........");
-		System.out.println(" test branch login.");	
+			
     return "Login";
 	}
 
