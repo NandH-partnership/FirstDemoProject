@@ -80,9 +80,28 @@ public class ServicesImpl implements Services {
 	public void updateUser(User user) {
 		
 		Credentials credential=credentialsDao.findAllByUsernameAndPassword(user.getCredentials().getUsername(), user.getCredentials().getPassword());
-		user.setCredentials(credential);
-		userDao.save(user);
+		System.out.println("in service"+credential.getLoginid());
 		
+		/*user.setCredentials(credential);
+		userDao.save(user);*/
+		
+	}
+
+
+	@Override
+	public int removeUser(int id) {
+		try {
+		User user=userDao.findOne(id);
+		user.setRole(null);
+		userDao.delete(id);
+		return 1;
+		}catch (Exception e) {
+			System.out.println("Exception in SI while Remove");
+			e.printStackTrace();
+		}
+		
+		
+		return 0;
 	}
 
 

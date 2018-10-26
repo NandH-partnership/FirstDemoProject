@@ -182,7 +182,7 @@ function createXmlHttpRequestObject() {
 	
 	function edit(id) {
 		var xmlHttp = createXmlHttpRequestObject();
-		alert(id);
+	//	alert(id);
 		var url= "edit?id=" + id;
 		xmlHttp.open("GET", url, true);
 		xmlHttp.send();
@@ -253,7 +253,7 @@ function createXmlHttpRequestObject() {
 			editCell.innerHTML = "<input type='button' value='Edit' id='"
 					+ userList[key].id + "' onclick='edit(this.id)'>";
 			deleteCell.innerHTML = "<input type='button' value='Delete' id='"
-					+ userList[key].id + "' onclick='remove(this.id,'"+row.rowIndex+"')'>";
+					+ userList[key].id + "' onclick='remove(this.id,"+row.rowIndex+")'>";
 
 		}
 
@@ -275,6 +275,7 @@ function createXmlHttpRequestObject() {
 		user.credentials=credentials;
 		var role=new Object();
 		role.roleid=document.getElementsByName("roleid")[0].value;
+		alert(role.roleid);
 		user.role=role;
 		console.log("in the buttonClick Function");
 		modal.style.display = "none";
@@ -305,6 +306,22 @@ function createXmlHttpRequestObject() {
 	function remove(id,index){
 		alert(id);
 		alert(index);
+		var xmlHttp = createXmlHttpRequestObject();
+		var url = "remove?id="+id;
+		xmlHttp.open("Get", url, true);
+		xmlHttp.send();
+		xmlHttp.onreadystatechange = function() {
+			if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+				var i= JSON.parse(xmlHttp.responseText);
+				if(i==1){
+				 document.getElementById("userDataTable").deleteRow(index);
+				}else {
+					alert("sf");
+				}
+			}
+
+		} 
+		
 	}
 
 	

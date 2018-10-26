@@ -29,10 +29,7 @@ public class HomeController {
 	@RequestMapping("/")
 	public String start() {
 
-		System.out.println(" test branch login");
-		System.out.println(" hemant branch........");
-		System.out.println(" test branch login.");	
-    return "Login";
+	return "Login";
 	}
 
 	@RequestMapping("/registerpage")
@@ -129,6 +126,7 @@ public class HomeController {
 	@RequestMapping("/edit")
 	public @ResponseBody String editlist( int id,HttpServletResponse response) {
 	
+		
 		User user=services.getSingleUser(id);
 		String json=new Gson().toJson(user);
 		response.setContentType("application/json");
@@ -147,6 +145,10 @@ public class HomeController {
 
 	public @ResponseBody  String updateuser(@RequestBody User user,HttpServletResponse response) throws IOException {
 		
+		System.out.println(user.getCredentials().getPassword());
+		System.out.println(user.getCredentials().getUsername());
+		System.out.println(user.getRole().getRoleid());
+		
 		services.updateUser(user);
 		List<User>userList=services.getListByRoleId(3);
 		String json=new Gson().toJson(userList);
@@ -162,6 +164,24 @@ public class HomeController {
 		return json;
 	
 	
+	}
+	
+	@RequestMapping("/remove")
+	public @ResponseBody String removeUser(@RequestParam int id,HttpServletResponse response) {
+		int i=services.removeUser(id);
+		System.out.println("remove ==="+i);
+		String json=new Gson().toJson(i);
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		try {
+			response.getOutputStream();
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		}
+	
+		return json;
+
 	}
 
 }
