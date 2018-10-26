@@ -403,9 +403,9 @@ function createXmlHttpRequestObject() {
 					</h4></td>
 			</tr>
 		</table>
-		<input type="button" value="Adminlist" onclick="adminList(1)">
-		<input type="button" value="Managerlist" onclick="managerList(2)">
-		<input type="button" value="Userlist" onclick="userList(3)"><br>
+		<input type="button" value="Adminlist" onclick="adminList()">
+		<input type="button" value="Managerlist" onclick="managerList()">
+		<input type="button" value="Userlist" onclick="userList()"><br>
 		<input type="button" value="Add User" onclick="addUser()">
 		<table id="userDataTable"></table>
 		

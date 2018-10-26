@@ -145,10 +145,7 @@ public class HomeController {
 
 	public @ResponseBody  String updateuser(@RequestBody User user,HttpServletResponse response) throws IOException {
 		
-		System.out.println(user.getCredentials().getPassword());
-		System.out.println(user.getCredentials().getUsername());
-		System.out.println(user.getRole().getRoleid());
-		
+	
 		services.updateUser(user);
 		List<User>userList=services.getListByRoleId(3);
 		String json=new Gson().toJson(userList);
@@ -169,7 +166,7 @@ public class HomeController {
 	@RequestMapping("/remove")
 	public @ResponseBody String removeUser(@RequestParam int id,HttpServletResponse response) {
 		int i=services.removeUser(id);
-		System.out.println("remove ==="+i);
+	
 		String json=new Gson().toJson(i);
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");

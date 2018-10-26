@@ -79,11 +79,10 @@ public class ServicesImpl implements Services {
 	@Override
 	public void updateUser(User user) {
 		
-		Credentials credential=credentialsDao.findAllByUsernameAndPassword(user.getCredentials().getUsername(), user.getCredentials().getPassword());
-		System.out.println("in service"+credential.getLoginid());
-		
-		/*user.setCredentials(credential);
-		userDao.save(user);*/
+		User user1=userDao.findOne(user.getId());
+		user.getCredentials().setLoginid(user1.getCredentials().getLoginid());
+		user.setRole(user1.getRole());
+		userDao.save(user);
 		
 	}
 
