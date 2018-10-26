@@ -95,7 +95,8 @@ public class HomeController {
 		return json;
 		
 	} 
-
+	
+	@RequestMapping("/getManagerList")
 	public @ResponseBody String sendManagerList(HttpServletResponse  response) {
 		List<User>managerList=services.getListByRoleId(2);
 		String json=new Gson().toJson(managerList);
@@ -110,6 +111,7 @@ public class HomeController {
 		return json;
 		
 	} 
+	@RequestMapping("/getAdminList")
 	public @ResponseBody String sendAdminList(HttpServletResponse  response) {
 		List<User>adminList=services.getListByRoleId(1);
 		String json=new Gson().toJson(adminList);

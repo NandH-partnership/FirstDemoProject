@@ -61,7 +61,7 @@ public class ServicesImpl implements Services {
 		List<User>allList=(List<User>) userDao.findAll();
 		List<User>userList=new ArrayList<User>();
 		for(User user:allList) {
-			if(user.getRole().getRoleid()==3) {
+			if(user.getRole().getRoleid()==i) {
 			userList.add(user);
 			}
 		}
@@ -78,6 +78,9 @@ public class ServicesImpl implements Services {
 
 	@Override
 	public void updateUser(User user) {
+		
+		Credentials credential=credentialsDao.findAllByUsernameAndPassword(user.getCredentials().getUsername(), user.getCredentials().getPassword());
+		user.setCredentials(credential);
 		userDao.save(user);
 		
 	}
