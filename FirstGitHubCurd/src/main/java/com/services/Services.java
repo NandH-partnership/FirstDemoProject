@@ -15,6 +15,14 @@ public interface Services {
 
 	List<User> getListByRoleId(int i);
 
+	User getSingleUser(int id);
+
+	void updateUser(User user);
+
+
+
+	
+
 	
 
 	

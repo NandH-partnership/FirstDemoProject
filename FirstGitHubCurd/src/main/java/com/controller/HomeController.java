@@ -9,7 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -43,19 +45,19 @@ public class HomeController {
 	public String login(@ModelAttribute Credentials credentials, Model model) {
 
 		User user=services.getSingleUser(credentials);
-		model.addAttribute("user",user);
+		
 		switch (user.getRole().getRoleid()) {
 		case 1:
-			model.addAttribute("msg","admin");
+			model.addAttribute("admin",user);
 
-			return "Login";
+			return "Admin";
 		case 2:
 			
-			model.addAttribute("msg","manager");
+			model.addAttribute("manager",user);
 
-			return "Login";
+			return "Manager";
 		case 3:
-			model.addAttribute("msg","user");
+			model.addAttribute("user",user);
 
 			return "UserData";
 		
@@ -77,7 +79,7 @@ public class HomeController {
 		}
 		return "Login";
 	}
-	
+	@RequestMapping("/getUserList")
 	public @ResponseBody String sendUserList(HttpServletResponse  response) {
 		List<User>userList=services.getListByRoleId(3);
 		String json=new Gson().toJson(userList);
@@ -89,9 +91,12 @@ public class HomeController {
 			
 			e.printStackTrace();
 		}
+	
 		return json;
 		
 	} 
+	
+	@RequestMapping("/getManagerList")
 	public @ResponseBody String sendManagerList(HttpServletResponse  response) {
 		List<User>managerList=services.getListByRoleId(2);
 		String json=new Gson().toJson(managerList);
@@ -106,6 +111,7 @@ public class HomeController {
 		return json;
 		
 	} 
+	@RequestMapping("/getAdminList")
 	public @ResponseBody String sendAdminList(HttpServletResponse  response) {
 		List<User>adminList=services.getListByRoleId(1);
 		String json=new Gson().toJson(adminList);
@@ -120,5 +126,42 @@ public class HomeController {
 		return json;
 		
 	} 
+	@RequestMapping("/edit")
+	public @ResponseBody String editlist( int id,HttpServletResponse response) {
+	
+		User user=services.getSingleUser(id);
+		String json=new Gson().toJson(user);
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		try {
+			response.getOutputStream();
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		}
+	
+		return json;
+	
+	}
+	@RequestMapping(value="/update",method=RequestMethod.PUT,consumes="application/json")
+
+	public @ResponseBody  String updateuser(@RequestBody User user,HttpServletResponse response) throws IOException {
+		
+		services.updateUser(user);
+		List<User>userList=services.getListByRoleId(3);
+		String json=new Gson().toJson(userList);
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		try {
+			response.getOutputStream();
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		}
+	
+		return json;
+	
+	
+	}
 
 }
