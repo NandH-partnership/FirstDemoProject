@@ -19,6 +19,8 @@ public interface Services {
 
 	void updateUser(User user);
 
+	int removeUser(int id);
+
 
 
 	
